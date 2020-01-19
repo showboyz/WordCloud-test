@@ -5,6 +5,8 @@ import Drawer from '@material-ui/core/Drawer';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Link as RouterLink } from 'react-router-dom'
+import Link from '@material-ui/core/Link'
 
 const styles = {
     root: {
@@ -26,6 +28,7 @@ class AppShell extends React.Component {
     render() {
         const { classes } = this.props;
         return (
+         <div>
             <div className={classes.root}>
                 <AppBar position="static">
                     <IconButton className={classes.menuButton} color="inherit" onClick={this.handleDrawerToggle}>
@@ -33,9 +36,29 @@ class AppShell extends React.Component {
                     </IconButton>
                 </AppBar>
                 <Drawer open={this.state.toggle}>
-                    <MenuItem onClick={this.handleDrawerToggle}>Home</MenuItem>
+                    <MenuItem onClick={this.handleDrawerToggle}>
+                        <Link component={RouterLink} to='/'>
+                            Home
+                        </Link>
+                    </MenuItem>
+                    <MenuItem onClick={this.handleDrawerToggle}>
+                        <Link component={RouterLink} to='/texts'>
+                            Texts
+                        </Link>
+                    </MenuItem>
+                    <MenuItem onClick={this.handleDrawerToggle}>
+                        <Link component={RouterLink} to='/words'>
+                            Words
+                        </Link>
+                    </MenuItem>
+
+
                 </Drawer>
             </div>
+            <div id="content" style={{margin: 'auto', marginTop: '20px', marginLeft: '20px', marginRight: '20px'}}>
+                {React.cloneElement(this.props.children)}
+            </div>
+         </div>  
         );
     }
 }
