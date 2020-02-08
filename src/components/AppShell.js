@@ -12,6 +12,7 @@ const styles = {
     root: {
         flexGrow: 1,
     },
+    //왼쪽 정렬
     menuButton: {
         marginRight: 'auto'
     },
@@ -24,6 +25,7 @@ class AppShell extends React.Component {
             toggle: false
         };
     }
+    //toggle 실행하면 반대값 실행
     handleDrawerToggle = () => this.setState({ toggle: !this.state.toggle })
     render() {
         const { classes } = this.props;
@@ -38,17 +40,17 @@ class AppShell extends React.Component {
                 <Drawer open={this.state.toggle}>
                     <MenuItem onClick={this.handleDrawerToggle}>
                         <Link component={RouterLink} to='/'>
-                            Home
+                            ____Home____
                         </Link>
                     </MenuItem>
                     <MenuItem onClick={this.handleDrawerToggle}>
                         <Link component={RouterLink} to='/texts'>
-                            Texts
+                            ____Texts____
                         </Link>
                     </MenuItem>
                     <MenuItem onClick={this.handleDrawerToggle}>
                         <Link component={RouterLink} to='/words'>
-                            Words
+                            ____Words____
                         </Link>
                     </MenuItem>
 
