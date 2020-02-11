@@ -32,7 +32,7 @@ class AppShell extends React.Component {
         return (
          <div>
             <div className={classes.root}>
-                <AppBar position="static">
+                <AppBar position="fixed">
                     <IconButton className={classes.menuButton} color="inherit" onClick={this.handleDrawerToggle}>
                         <MenuIcon />
                     </IconButton>
@@ -57,7 +57,7 @@ class AppShell extends React.Component {
 
                 </Drawer>
             </div>
-            <div id="content" style={{margin: 'auto', marginTop: '20px', marginLeft: '20px', marginRight: '20px'}}>
+            <div id="content" style={{margin: 'auto', marginTop: '80px', marginLeft: '20px', marginRight: '20px'}}>
                 {React.cloneElement(this.props.children)}
             </div>
          </div>  
